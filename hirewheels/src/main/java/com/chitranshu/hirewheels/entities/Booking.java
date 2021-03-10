@@ -3,8 +3,10 @@ package com.chitranshu.hirewheels.entities;
 import java.sql.Timestamp;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.Id;
 
+@Entity
 public class Booking {
 	
 	@Id
