@@ -4,12 +4,17 @@ import java.sql.Timestamp;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Booking {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long bookingId;
 	
 	@Column(nullable = false)
@@ -24,14 +29,18 @@ public class Booking {
 	@Column(nullable = false, columnDefinition = "Numeric(10,2)")
 	private double amount;
 	
-	@Column(nullable = false)
-	private long locationId;
+
+	@ManyToOne
+	@JoinColumn(name = "location_id", nullable = false)
+	private Location location;
 	
-	@Column(nullable = false)
-	private long vehicleId;
+	@ManyToOne
+	@JoinColumn(name = "vehicle_id", nullable = false)
+	private Vehicle vehicle;
 	
-	@Column(nullable = false)
-	private long userId;
+	@ManyToOne
+	@JoinColumn(name = "user_id", nullable = false)
+	private User user;
 
 	public long getBookingId() {
 		return bookingId;
@@ -73,28 +82,29 @@ public class Booking {
 		this.amount = amount;
 	}
 
-	public long getLocationId() {
-		return locationId;
+	public Location getLocation() {
+		return location;
 	}
 
-	public void setLocationId(long locationId) {
-		this.locationId = locationId;
+	public void setLocation(Location location) {
+		this.location = location;
 	}
 
-	public long getVehicleId() {
-		return vehicleId;
+	public Vehicle getVehicle() {
+		return vehicle;
 	}
 
-	public void setVehicleId(long vehicleId) {
-		this.vehicleId = vehicleId;
+	public void setVehicle(Vehicle vehicle) {
+		this.vehicle = vehicle;
 	}
 
-	public long getUserId() {
-		return userId;
+	public User getUser() {
+		return user;
 	}
 
-	public void setUserId(long userId) {
-		this.userId = userId;
+	public void setUser(User user) {
+		this.user = user;
 	}
+
 	
 }

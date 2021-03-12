@@ -1,12 +1,21 @@
 package com.chitranshu.hirewheels.entities;
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 @Entity
-public class Users {
+public class User {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long userId;
 	
 	@Column(length = 50, nullable = false)
@@ -24,11 +33,16 @@ public class Users {
 	@Column(length = 10, nullable = false, unique = true)
 	private String mobileNo;
 	
-	@Column(nullable = false)
-	private long roleId;
 	
 	@Column(columnDefinition="Numeric(10,2) default '10000.00'")
 	private double walletMoney;
+	
+	@ManyToOne
+	@JoinColumn(name = "role_id", nullable = false)
+	private UserRole userRole;
+	
+	 @OneToMany(mappedBy = "user",fetch = FetchType.EAGER)
+	 private Set<Booking> bookings;
 
 	public long getUserId() {
 		return userId;
@@ -78,13 +92,6 @@ public class Users {
 		this.mobileNo = mobileNo;
 	}
 
-	public long getRoleId() {
-		return roleId;
-	}
-
-	public void setRoleId(long roleId) {
-		this.roleId = roleId;
-	}
 
 	public double getWalletMoney() {
 		return walletMoney;
@@ -92,6 +99,22 @@ public class Users {
 
 	public void setWalletMoney(double walletMoney) {
 		this.walletMoney = walletMoney;
+	}
+
+	public UserRole getUserRole() {
+		return userRole;
+	}
+
+	public void setUserRole(UserRole userRole) {
+		this.userRole = userRole;
+	}
+
+	public Set<Booking> getBookings() {
+		return bookings;
+	}
+
+	public void setBookings(Set<Booking> bookings) {
+		this.bookings = bookings;
 	}
 	
 	
