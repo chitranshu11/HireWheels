@@ -6,4 +6,5 @@ import com.chitranshu.hirewheels.entities.UserRole;
 
 public interface UserRoleDAO extends JpaRepository<UserRole, Long> {
 
+	UserRole findById(long id);
 }

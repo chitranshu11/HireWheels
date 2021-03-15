@@ -20,7 +20,7 @@ public class VehicleCategory {
 	private String vehicleCategoryName;
 	
 	@OneToMany (mappedBy = "vehicleCategory",fetch = FetchType.EAGER)
-	private Set<VehicleSubcategory> vehicleSubcategories;
+	private Set<VehicleSubCategory> vehicleSubcategories;
 
 	public long getVehicleCategoryId() {
 		return vehicleCategoryId;
@@ -38,11 +38,11 @@ public class VehicleCategory {
 		this.vehicleCategoryName = vehicleCategoryName;
 	}
 
-	public Set<VehicleSubcategory> getVehicleSubcategories() {
+	public Set<VehicleSubCategory> getVehicleSubcategories() {
 		return vehicleSubcategories;
 	}
 
-	public void setVehicleSubcategories(Set<VehicleSubcategory> vehicleSubcategories) {
+	public void setVehicleSubcategories(Set<VehicleSubCategory> vehicleSubcategories) {
 		this.vehicleSubcategories = vehicleSubcategories;
 	}
 	

@@ -43,7 +43,7 @@ public class Vehicle {
 	
 	@ManyToOne
 	@JoinColumn(name = "vehicle_subcategory_id", nullable = false)
-	private VehicleSubcategory vehicleSubcategory;
+	private VehicleSubCategory vehicleSubcategory;
 	
 	@ManyToOne
 	@JoinColumn(name = "fuel_type_id", nullable = false)
@@ -114,11 +114,11 @@ public class Vehicle {
 		this.location = location;
 	}
 
-	public VehicleSubcategory getVehicleSubcategory() {
+	public VehicleSubCategory getVehicleSubcategory() {
 		return vehicleSubcategory;
 	}
 
-	public void setVehicleSubcategory(VehicleSubcategory vehicleSubcategory) {
+	public void setVehicleSubcategory(VehicleSubCategory vehicleSubcategory) {
 		this.vehicleSubcategory = vehicleSubcategory;
 	}
 

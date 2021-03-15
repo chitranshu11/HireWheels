@@ -13,7 +13,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
-public class VehicleSubcategory {
+public class VehicleSubCategory {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long vehicleSubcategoryId;
@@ -30,9 +30,17 @@ public class VehicleSubcategory {
 	private Set<Vehicle> vehicles;
 	
 	@ManyToOne
-	@JoinColumn(name = "vehicle_category_id", nullable = false)
+	@JoinColumn(name = "vehicle_category_id")
 	private VehicleCategory vehicleCategory;
 
+	public VehicleSubCategory(int id, String name, int price, VehicleCategory vc) {
+		// TODO Auto-generated constructor stub
+		this.vehicleSubcategoryId = id;
+		this.vehicleSubcategoryName = name;
+		this.pricePerDay = price;
+		this.vehicleCategory = vc;
+	}
+	public VehicleSubCategory() {}
 	public long getVehicleSubcategoryId() {
 		return vehicleSubcategoryId;
 	}

@@ -4,6 +4,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.chitranshu.hirewheels.entities.VehicleCategory;
 
-public interface VehicalCategoryDAO  extends JpaRepository<VehicleCategory, Long>{
+public interface VehicleCategoryDAO  extends JpaRepository<VehicleCategory, Long>{
+
+	VehicleCategory findByVehicleCategoryId(long l);
 
 }
